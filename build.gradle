@@ -1,0 +1,106 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'jacoco'
+apply plugin: 'idea'
+
+
+// Deploy setting
+def deployName = 'LastMinute-Flight_DroneControl'
+def mainClass = "at.afv.run.DroneControl"
+
+version = '1.0'
+
+
+// Repositories
+repositories {
+    mavenCentral()
+}
+
+// Test coverage report
+jacoco {
+    toolVersion = "0.7.1.201405082137"
+    reportsDir = file("$buildDir/reports/coverage")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "$buildDir/reports/html"
+    }
+}
+
+
+// Dependencies
+dependencies {
+	//group:name:version
+    compile 'org.apache.logging.log4j:log4j-api:2.1'
+    compile 'org.apache.logging.log4j:log4j-core:2.1'
+
+    testCompile 'junit:junit:4.+'
+    testCompile 'org.mockito:mockito-core:2.0.5-beta'
+}
+
+// Test run
+task testRun(type: JavaExec, dependsOn: ['classes']) {
+    main = mainClass
+    classpath = sourceSets.main.runtimeClasspath
+    args '-D', '-h', '172.16.5.129:3306', '-u', 'root', '-p', 'root', '-d', 'salto'
+    standardInput = System.in
+}
+
+// Release Jar
+task releaseJar(type: Jar, dependsOn: ['classes', 'javadoc', 'test']) {
+
+    // jar manifest
+    manifest {
+        attributes 'Implementation-Title': rootProject.name,
+                   'Implementation-Version': version,
+                   'Main-Class': mainClass
+    }
+	
+    // jar base name
+    baseName = deployName
+    
+	// pack all compile libs
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+
+	// pack all source files
+    from sourceSets.main.allSource
+    
+	// pack javadoc
+    from(javadoc.destinationDir) {
+        into('doc/javadoc')
+    }
+    
+	// pack test coverage
+    from(jacocoTestReport.outputs.files) {
+        into('doc/test/coverage')
+    }
+	
+    // pack test report
+    from(test.outputs.files) {
+        into('doc/test/report')
+    }
+	
+    // pack all other files
+    from(projectDir) {
+        include 'files/protocol/*.pdf'
+        into 'doc'
+    }
+	
+    // pack git folder
+//    from('.git') {
+//        into('.git')
+//    }
+
+    //exclude library Licenses
+    exclude 'META-INF/LICENSE*'
+
+    with jar
+}
+

@@ -1,6 +1,5 @@
 apply plugin: 'java'
 apply plugin: 'application'
-apply plugin: 'jacoco'
 apply plugin: 'idea'
 
 
@@ -14,20 +13,6 @@ version = '1.0'
 // Repositories
 repositories {
     mavenCentral()
-}
-
-// Test coverage report
-jacoco {
-    toolVersion = "0.7.1.201405082137"
-    reportsDir = file("$buildDir/reports/coverage")
-}
-
-jacocoTestReport {
-    reports {
-        xml.enabled false
-        csv.enabled false
-        html.destination "$buildDir/reports/html"
-    }
 }
 
 

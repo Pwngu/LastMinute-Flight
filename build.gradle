@@ -27,13 +27,11 @@ dependencies {
     testCompile 'org.mockito:mockito-core:2.0.5-beta'
 }
 
-// Test run
-task testRun(type: JavaExec, dependsOn: ['classes']) {
+run {
+
     main = mainClass
-    classpath = sourceSets.main.runtimeClasspath
-    args '-D', '-h', '172.16.5.129:3306', '-u', 'root', '-p', 'root', '-d', 'salto'
-    standardInput = System.in
 }
+
 
 // Release Jar
 task releaseJar(type: Jar, dependsOn: ['classes', 'javadoc', 'test']) {
@@ -57,32 +55,6 @@ task releaseJar(type: Jar, dependsOn: ['classes', 'javadoc', 'test']) {
 
 	// pack all source files
     from sourceSets.main.allSource
-    
-	// pack javadoc
-    from(javadoc.destinationDir) {
-        into('doc/javadoc')
-    }
-    
-	// pack test coverage
-    from(jacocoTestReport.outputs.files) {
-        into('doc/test/coverage')
-    }
-	
-    // pack test report
-    from(test.outputs.files) {
-        into('doc/test/report')
-    }
-	
-    // pack all other files
-    from(projectDir) {
-        include 'files/protocol/*.pdf'
-        into 'doc'
-    }
-	
-    // pack git folder
-//    from('.git') {
-//        into('.git')
-//    }
 
     //exclude library Licenses
     exclude 'META-INF/LICENSE*'

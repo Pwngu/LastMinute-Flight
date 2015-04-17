@@ -15,6 +15,7 @@ public class DroneControl {
 
     public static void main(String[] args) throws InterruptedException {
 
+        create_connect();
         create_drive_direct(50, 50);
         Thread.sleep(1000);
         create_drive_direct(0, 0);

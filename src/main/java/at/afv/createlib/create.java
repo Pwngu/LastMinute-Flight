@@ -7,7 +7,7 @@ package at.afv.createlib;/* ----------------------------------------------------
  * ----------------------------------------------------------------------------- */
 
 
-public class Create {
+public class create {
   public static int create_connect() {
     return createJNI.create_connect();
   }
@@ -20,20 +20,20 @@ public class Create {
     createJNI.set_create_mode(mode);
   }
 
-  public static void create_drive_direct(long left_speed, long right_speed) {
-    createJNI.create_drive_direct(left_speed, right_speed);
+  public static void create_drive_direct(SWIGTYPE_p_int16_t left_speed, SWIGTYPE_p_int16_t right_speed) {
+    createJNI.create_drive_direct(SWIGTYPE_p_int16_t.getCPtr(left_speed), SWIGTYPE_p_int16_t.getCPtr(right_speed));
   }
 
-  public static void create_drive(long speed, long radius) {
-    createJNI.create_drive(speed, radius);
+  public static void create_drive(SWIGTYPE_p_int16_t speed, SWIGTYPE_p_int16_t radius) {
+    createJNI.create_drive(SWIGTYPE_p_int16_t.getCPtr(speed), SWIGTYPE_p_int16_t.getCPtr(radius));
   }
 
-  public static void create_turn(long speed, long angle) {
-    createJNI.create_turn(speed, angle);
+  public static void create_turn(SWIGTYPE_p_int16_t speed, SWIGTYPE_p_int16_t angle) {
+    createJNI.create_turn(SWIGTYPE_p_int16_t.getCPtr(speed), SWIGTYPE_p_int16_t.getCPtr(angle));
   }
 
-  public static void create_wait_angle(long angle) {
-    createJNI.create_wait_angle(angle);
+  public static void create_wait_angle(SWIGTYPE_p_int16_t angle) {
+    createJNI.create_wait_angle(SWIGTYPE_p_int16_t.getCPtr(angle));
   }
 
   public static SWIGTYPE_p_uint8_t get_create_left_bump() {

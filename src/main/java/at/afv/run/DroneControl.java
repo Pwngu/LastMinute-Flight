@@ -1,6 +1,8 @@
 package at.afv.run;
 
-import static at.afv.createlib.Create.*;
+import at.afv.createlib.SWIGTYPE_p_int16_t;
+
+import static at.afv.createlib.create.*;
 
 /**
  * Created by klaus on 01.04.15.
@@ -16,9 +18,9 @@ public class DroneControl {
     public static void main(String[] args) throws InterruptedException {
 
         create_connect();
-        create_drive_direct(50, 50);
+        create_drive_direct(new SWIGTYPE_p_int16_t(50, true), new SWIGTYPE_p_int16_t(50, true));
         Thread.sleep(1000);
-        create_drive_direct(0, 0);
+        create_drive_direct(new SWIGTYPE_p_int16_t(0, true), new SWIGTYPE_p_int16_t(0, true));
         System.out.println("juchuuu");
     }
 }

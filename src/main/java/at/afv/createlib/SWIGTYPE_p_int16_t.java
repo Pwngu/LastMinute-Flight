@@ -10,7 +10,7 @@ package at.afv.createlib;/* ----------------------------------------------------
 public class SWIGTYPE_p_int16_t {
   private long swigCPtr;
 
-  protected SWIGTYPE_p_int16_t(long cPtr, boolean futureUse) {
+  public SWIGTYPE_p_int16_t(long cPtr, boolean futureUse) {
     swigCPtr = cPtr;
   }
 

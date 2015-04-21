@@ -1,6 +1,6 @@
 package at.afv.run;
 
-import static at.afv.createlib.Create.*;
+import at.afv.createlib.*;
 
 /**
  * Created by klaus on 01.04.15.
@@ -14,11 +14,10 @@ public class DroneControl {
 
 
     public static void main(String[] args) throws InterruptedException {
-
-        create_connect();
-        create_drive_direct(50, 50);
+        create.create_connect();
+        create.create_drive_direct((short) 50, (short) 50);
         Thread.sleep(1000);
-        create_drive_direct(0, 0);
+        create.create_drive_direct((short) 0, (short) 0);
         System.out.println("juchuuu");
     }
 }

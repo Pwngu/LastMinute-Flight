@@ -190,9 +190,36 @@ static void SWIGUNUSED SWIG_JavaThrowException(JNIEnv *jenv, SWIG_JavaExceptionC
 #include "create.h"
 
 
+#include <stdint.h>		// Use the C99 official header
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+SWIGEXPORT jint JNICALL Java_createJNI_CREATE_1FULL_1MODE_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  int result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (int)(1);
+  jresult = (jint)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_createJNI_CREATE_1SAVE_1MODE_1get(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
+  int result;
+  
+  (void)jenv;
+  (void)jcls;
+  result = (int)(2);
+  jresult = (jint)result; 
+  return jresult;
+}
+
 
 SWIGEXPORT jint JNICALL Java_createJNI_create_1connect(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
@@ -223,330 +250,228 @@ SWIGEXPORT void JNICALL Java_createJNI_set_1create_1mode(JNIEnv *jenv, jclass jc
 }
 
 
-SWIGEXPORT void JNICALL Java_createJNI_create_1drive_1direct(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_createJNI_create_1drive_1direct(JNIEnv *jenv, jclass jcls, jshort jarg1, jshort jarg2) {
   int16_t arg1 ;
   int16_t arg2 ;
-  int16_t *argp1 ;
-  int16_t *argp2 ;
   
   (void)jenv;
   (void)jcls;
-  argp1 = *(int16_t **)&jarg1; 
-  if (!argp1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null int16_t");
-    return ;
-  }
-  arg1 = *argp1; 
-  argp2 = *(int16_t **)&jarg2; 
-  if (!argp2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null int16_t");
-    return ;
-  }
-  arg2 = *argp2; 
+  arg1 = (int16_t)jarg1; 
+  arg2 = (int16_t)jarg2; 
   create_drive_direct(arg1,arg2);
 }
 
 
-SWIGEXPORT void JNICALL Java_createJNI_create_1drive(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_createJNI_create_1drive(JNIEnv *jenv, jclass jcls, jshort jarg1, jshort jarg2) {
   int16_t arg1 ;
   int16_t arg2 ;
-  int16_t *argp1 ;
-  int16_t *argp2 ;
   
   (void)jenv;
   (void)jcls;
-  argp1 = *(int16_t **)&jarg1; 
-  if (!argp1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null int16_t");
-    return ;
-  }
-  arg1 = *argp1; 
-  argp2 = *(int16_t **)&jarg2; 
-  if (!argp2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null int16_t");
-    return ;
-  }
-  arg2 = *argp2; 
+  arg1 = (int16_t)jarg1; 
+  arg2 = (int16_t)jarg2; 
   create_drive(arg1,arg2);
 }
 
 
-SWIGEXPORT void JNICALL Java_createJNI_create_1turn(JNIEnv *jenv, jclass jcls, jlong jarg1, jlong jarg2) {
+SWIGEXPORT void JNICALL Java_createJNI_create_1turn(JNIEnv *jenv, jclass jcls, jshort jarg1, jshort jarg2) {
   int16_t arg1 ;
   int16_t arg2 ;
-  int16_t *argp1 ;
-  int16_t *argp2 ;
   
   (void)jenv;
   (void)jcls;
-  argp1 = *(int16_t **)&jarg1; 
-  if (!argp1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null int16_t");
-    return ;
-  }
-  arg1 = *argp1; 
-  argp2 = *(int16_t **)&jarg2; 
-  if (!argp2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null int16_t");
-    return ;
-  }
-  arg2 = *argp2; 
+  arg1 = (int16_t)jarg1; 
+  arg2 = (int16_t)jarg2; 
   create_turn(arg1,arg2);
 }
 
 
-SWIGEXPORT void JNICALL Java_createJNI_create_1wait_1angle(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+SWIGEXPORT void JNICALL Java_createJNI_create_1wait_1angle(JNIEnv *jenv, jclass jcls, jshort jarg1) {
   int16_t arg1 ;
-  int16_t *argp1 ;
   
   (void)jenv;
   (void)jcls;
-  argp1 = *(int16_t **)&jarg1; 
-  if (!argp1) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null int16_t");
-    return ;
-  }
-  arg1 = *argp1; 
+  arg1 = (int16_t)jarg1; 
   create_wait_angle(arg1);
 }
 
 
-SWIGEXPORT jlong JNICALL Java_createJNI_get_1create_1left_1bump(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1left_1bump(JNIEnv *jenv, jclass jcls) {
+  jshort jresult = 0 ;
   uint8_t result;
   
   (void)jenv;
   (void)jcls;
-  result = get_create_left_bump();
-  {
-    uint8_t * resultptr = (uint8_t *) malloc(sizeof(uint8_t));
-    memmove(resultptr, &result, sizeof(uint8_t));
-    *(uint8_t **)&jresult = resultptr;
-  }
+  result = (uint8_t)get_create_left_bump();
+  jresult = (jshort)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jlong JNICALL Java_createJNI_get_1create_1right_1bump(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1right_1bump(JNIEnv *jenv, jclass jcls) {
+  jshort jresult = 0 ;
   uint8_t result;
   
   (void)jenv;
   (void)jcls;
-  result = get_create_right_bump();
-  {
-    uint8_t * resultptr = (uint8_t *) malloc(sizeof(uint8_t));
-    memmove(resultptr, &result, sizeof(uint8_t));
-    *(uint8_t **)&jresult = resultptr;
-  }
+  result = (uint8_t)get_create_right_bump();
+  jresult = (jshort)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jlong JNICALL Java_createJNI_get_1create_1left_1wheel_1drop(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1left_1wheel_1drop(JNIEnv *jenv, jclass jcls) {
+  jshort jresult = 0 ;
   uint8_t result;
   
   (void)jenv;
   (void)jcls;
-  result = get_create_left_wheel_drop();
-  {
-    uint8_t * resultptr = (uint8_t *) malloc(sizeof(uint8_t));
-    memmove(resultptr, &result, sizeof(uint8_t));
-    *(uint8_t **)&jresult = resultptr;
-  }
+  result = (uint8_t)get_create_left_wheel_drop();
+  jresult = (jshort)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jlong JNICALL Java_createJNI_get_1create_1right_1wheel_1drop(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1right_1wheel_1drop(JNIEnv *jenv, jclass jcls) {
+  jshort jresult = 0 ;
   uint8_t result;
   
   (void)jenv;
   (void)jcls;
-  result = get_create_right_wheel_drop();
-  {
-    uint8_t * resultptr = (uint8_t *) malloc(sizeof(uint8_t));
-    memmove(resultptr, &result, sizeof(uint8_t));
-    *(uint8_t **)&jresult = resultptr;
-  }
+  result = (uint8_t)get_create_right_wheel_drop();
+  jresult = (jshort)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jlong JNICALL Java_createJNI_get_1create_1caster_1wheel_1drop(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1caster_1wheel_1drop(JNIEnv *jenv, jclass jcls) {
+  jshort jresult = 0 ;
   uint8_t result;
   
   (void)jenv;
   (void)jcls;
-  result = get_create_caster_wheel_drop();
-  {
-    uint8_t * resultptr = (uint8_t *) malloc(sizeof(uint8_t));
-    memmove(resultptr, &result, sizeof(uint8_t));
-    *(uint8_t **)&jresult = resultptr;
-  }
+  result = (uint8_t)get_create_caster_wheel_drop();
+  jresult = (jshort)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jlong JNICALL Java_createJNI_get_1create_1wall(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1wall(JNIEnv *jenv, jclass jcls) {
+  jshort jresult = 0 ;
   uint8_t result;
   
   (void)jenv;
   (void)jcls;
-  result = get_create_wall();
-  {
-    uint8_t * resultptr = (uint8_t *) malloc(sizeof(uint8_t));
-    memmove(resultptr, &result, sizeof(uint8_t));
-    *(uint8_t **)&jresult = resultptr;
-  }
+  result = (uint8_t)get_create_wall();
+  jresult = (jshort)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jlong JNICALL Java_createJNI_get_1create_1left_1cliff(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1left_1cliff(JNIEnv *jenv, jclass jcls) {
+  jshort jresult = 0 ;
   uint8_t result;
   
   (void)jenv;
   (void)jcls;
-  result = get_create_left_cliff();
-  {
-    uint8_t * resultptr = (uint8_t *) malloc(sizeof(uint8_t));
-    memmove(resultptr, &result, sizeof(uint8_t));
-    *(uint8_t **)&jresult = resultptr;
-  }
+  result = (uint8_t)get_create_left_cliff();
+  jresult = (jshort)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jlong JNICALL Java_createJNI_get_1create_1right_1cliff(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1right_1cliff(JNIEnv *jenv, jclass jcls) {
+  jshort jresult = 0 ;
   uint8_t result;
   
   (void)jenv;
   (void)jcls;
-  result = get_create_right_cliff();
-  {
-    uint8_t * resultptr = (uint8_t *) malloc(sizeof(uint8_t));
-    memmove(resultptr, &result, sizeof(uint8_t));
-    *(uint8_t **)&jresult = resultptr;
-  }
+  result = (uint8_t)get_create_right_cliff();
+  jresult = (jshort)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jlong JNICALL Java_createJNI_get_1create_1left_1front_1cliff(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1left_1front_1cliff(JNIEnv *jenv, jclass jcls) {
+  jshort jresult = 0 ;
   uint8_t result;
   
   (void)jenv;
   (void)jcls;
-  result = get_create_left_front_cliff();
-  {
-    uint8_t * resultptr = (uint8_t *) malloc(sizeof(uint8_t));
-    memmove(resultptr, &result, sizeof(uint8_t));
-    *(uint8_t **)&jresult = resultptr;
-  }
+  result = (uint8_t)get_create_left_front_cliff();
+  jresult = (jshort)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jlong JNICALL Java_createJNI_get_1create_1right_1front_1cliff(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1right_1front_1cliff(JNIEnv *jenv, jclass jcls) {
+  jshort jresult = 0 ;
   uint8_t result;
   
   (void)jenv;
   (void)jcls;
-  result = get_create_right_front_cliff();
-  {
-    uint8_t * resultptr = (uint8_t *) malloc(sizeof(uint8_t));
-    memmove(resultptr, &result, sizeof(uint8_t));
-    *(uint8_t **)&jresult = resultptr;
-  }
+  result = (uint8_t)get_create_right_front_cliff();
+  jresult = (jshort)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jlong JNICALL Java_createJNI_get_1create_1left_1cliff_1analog(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_createJNI_get_1create_1left_1cliff_1analog(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
   uint16_t result;
   
   (void)jenv;
   (void)jcls;
-  result = get_create_left_cliff_analog();
-  {
-    uint16_t * resultptr = (uint16_t *) malloc(sizeof(uint16_t));
-    memmove(resultptr, &result, sizeof(uint16_t));
-    *(uint16_t **)&jresult = resultptr;
-  }
+  result = (uint16_t)get_create_left_cliff_analog();
+  jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jlong JNICALL Java_createJNI_get_1create_1right_1cliff_1analog(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_createJNI_get_1create_1right_1cliff_1analog(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
   uint16_t result;
   
   (void)jenv;
   (void)jcls;
-  result = get_create_right_cliff_analog();
-  {
-    uint16_t * resultptr = (uint16_t *) malloc(sizeof(uint16_t));
-    memmove(resultptr, &result, sizeof(uint16_t));
-    *(uint16_t **)&jresult = resultptr;
-  }
+  result = (uint16_t)get_create_right_cliff_analog();
+  jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jlong JNICALL Java_createJNI_get_1create_1left_1front_1cliff_1analog(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_createJNI_get_1create_1left_1front_1cliff_1analog(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
   uint16_t result;
   
   (void)jenv;
   (void)jcls;
-  result = get_create_left_front_cliff_analog();
-  {
-    uint16_t * resultptr = (uint16_t *) malloc(sizeof(uint16_t));
-    memmove(resultptr, &result, sizeof(uint16_t));
-    *(uint16_t **)&jresult = resultptr;
-  }
+  result = (uint16_t)get_create_left_front_cliff_analog();
+  jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jlong JNICALL Java_createJNI_get_1create_1right_1front_1cliff_1analog(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jint JNICALL Java_createJNI_get_1create_1right_1front_1cliff_1analog(JNIEnv *jenv, jclass jcls) {
+  jint jresult = 0 ;
   uint16_t result;
   
   (void)jenv;
   (void)jcls;
-  result = get_create_right_front_cliff_analog();
-  {
-    uint16_t * resultptr = (uint16_t *) malloc(sizeof(uint16_t));
-    memmove(resultptr, &result, sizeof(uint16_t));
-    *(uint16_t **)&jresult = resultptr;
-  }
+  result = (uint16_t)get_create_right_front_cliff_analog();
+  jresult = (jint)result; 
   return jresult;
 }
 
 
-SWIGEXPORT jlong JNICALL Java_createJNI_get_1create_1angle(JNIEnv *jenv, jclass jcls) {
-  jlong jresult = 0 ;
+SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1angle(JNIEnv *jenv, jclass jcls) {
+  jshort jresult = 0 ;
   int16_t result;
   
   (void)jenv;
   (void)jcls;
-  result = get_create_angle();
-  {
-    int16_t * resultptr = (int16_t *) malloc(sizeof(int16_t));
-    memmove(resultptr, &result, sizeof(int16_t));
-    *(int16_t **)&jresult = resultptr;
-  }
+  result = (int16_t)get_create_angle();
+  jresult = (jshort)result; 
   return jresult;
 }
 

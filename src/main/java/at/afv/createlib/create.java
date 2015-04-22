@@ -7,7 +7,6 @@
  * ----------------------------------------------------------------------------- */
 
 package at.afv.createlib;
-import at.afv.createlib.createJNI;
 
 public class create implements createConstants {
   public static int create_connect() {
@@ -96,6 +95,10 @@ public class create implements createConstants {
 
   public static short get_create_angle() {
     return createJNI.get_create_angle();
+  }
+
+  public static int getAnalogOutput(int chan) {
+    return createJNI.getAnalogOutput(chan);
   }
 
 }

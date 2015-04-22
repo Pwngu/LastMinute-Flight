@@ -32,3 +32,4 @@ uint16_t get_create_left_front_cliff_analog();
 uint16_t get_create_right_front_cliff_analog();
 
 int16_t get_create_angle();
+uint16_t getAnalogOutput(int chan);

@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <wiringSerial.h>
+#include <wiringPiSPI.h>
 
 #include "create.h"
 #include "create_io_codes.h"
@@ -201,4 +202,14 @@ int16_t get_create_angle(){
         int16_t high = serialGetchar(create_fd) << 8;
         uint8_t low = serialGetchar(create_fd);
         return high | (int16_t)low;
+}
+
+uint16_t getAnalogOutput(int chan){
+	uint8_t buffer[3] = {
+	1,
+	(chan | (1 << 3)) << 4,
+	0
+	};
+	wiringPiSPIDataRW(0,buffer,3);
+	return (((uint16_t)buffer[1] <<  8) | ((uint16_t)buffer[2])) & 0x03FF;
 }

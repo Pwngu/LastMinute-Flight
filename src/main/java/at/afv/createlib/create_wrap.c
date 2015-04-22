@@ -197,7 +197,7 @@ static void SWIGUNUSED SWIG_JavaThrowException(JNIEnv *jenv, SWIG_JavaExceptionC
 extern "C" {
 #endif
 
-SWIGEXPORT jint JNICALL Java_createJNI_CREATE_1FULL_1MODE_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_at_afv_createlib_createJNI_CREATE_1FULL_1MODE_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
   
@@ -209,7 +209,7 @@ SWIGEXPORT jint JNICALL Java_createJNI_CREATE_1FULL_1MODE_1get(JNIEnv *jenv, jcl
 }
 
 
-SWIGEXPORT jint JNICALL Java_createJNI_CREATE_1SAVE_1MODE_1get(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_at_afv_createlib_createJNI_CREATE_1SAVE_1MODE_1get(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
   
@@ -221,7 +221,7 @@ SWIGEXPORT jint JNICALL Java_createJNI_CREATE_1SAVE_1MODE_1get(JNIEnv *jenv, jcl
 }
 
 
-SWIGEXPORT jint JNICALL Java_createJNI_create_1connect(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_at_afv_createlib_createJNI_create_1connect(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   int result;
   
@@ -233,14 +233,14 @@ SWIGEXPORT jint JNICALL Java_createJNI_create_1connect(JNIEnv *jenv, jclass jcls
 }
 
 
-SWIGEXPORT void JNICALL Java_createJNI_create_1disconnect(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT void JNICALL Java_at_afv_createlib_createJNI_create_1disconnect(JNIEnv *jenv, jclass jcls) {
   (void)jenv;
   (void)jcls;
   create_disconnect();
 }
 
 
-SWIGEXPORT void JNICALL Java_createJNI_set_1create_1mode(JNIEnv *jenv, jclass jcls, jchar jarg1) {
+SWIGEXPORT void JNICALL Java_at_afv_createlib_createJNI_set_1create_1mode(JNIEnv *jenv, jclass jcls, jchar jarg1) {
   char arg1 ;
   
   (void)jenv;
@@ -250,7 +250,7 @@ SWIGEXPORT void JNICALL Java_createJNI_set_1create_1mode(JNIEnv *jenv, jclass jc
 }
 
 
-SWIGEXPORT void JNICALL Java_createJNI_create_1drive_1direct(JNIEnv *jenv, jclass jcls, jshort jarg1, jshort jarg2) {
+SWIGEXPORT void JNICALL Java_at_afv_createlib_createJNI_create_1drive_1direct(JNIEnv *jenv, jclass jcls, jshort jarg1, jshort jarg2) {
   int16_t arg1 ;
   int16_t arg2 ;
   
@@ -262,7 +262,7 @@ SWIGEXPORT void JNICALL Java_createJNI_create_1drive_1direct(JNIEnv *jenv, jclas
 }
 
 
-SWIGEXPORT void JNICALL Java_createJNI_create_1drive(JNIEnv *jenv, jclass jcls, jshort jarg1, jshort jarg2) {
+SWIGEXPORT void JNICALL Java_at_afv_createlib_createJNI_create_1drive(JNIEnv *jenv, jclass jcls, jshort jarg1, jshort jarg2) {
   int16_t arg1 ;
   int16_t arg2 ;
   
@@ -274,7 +274,7 @@ SWIGEXPORT void JNICALL Java_createJNI_create_1drive(JNIEnv *jenv, jclass jcls, 
 }
 
 
-SWIGEXPORT void JNICALL Java_createJNI_create_1turn(JNIEnv *jenv, jclass jcls, jshort jarg1, jshort jarg2) {
+SWIGEXPORT void JNICALL Java_at_afv_createlib_createJNI_create_1turn(JNIEnv *jenv, jclass jcls, jshort jarg1, jshort jarg2) {
   int16_t arg1 ;
   int16_t arg2 ;
   
@@ -286,7 +286,7 @@ SWIGEXPORT void JNICALL Java_createJNI_create_1turn(JNIEnv *jenv, jclass jcls, j
 }
 
 
-SWIGEXPORT void JNICALL Java_createJNI_create_1wait_1angle(JNIEnv *jenv, jclass jcls, jshort jarg1) {
+SWIGEXPORT void JNICALL Java_at_afv_createlib_createJNI_create_1wait_1angle(JNIEnv *jenv, jclass jcls, jshort jarg1) {
   int16_t arg1 ;
   
   (void)jenv;
@@ -296,7 +296,7 @@ SWIGEXPORT void JNICALL Java_createJNI_create_1wait_1angle(JNIEnv *jenv, jclass 
 }
 
 
-SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1left_1bump(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jshort JNICALL Java_at_afv_createlib_createJNI_get_1create_1left_1bump(JNIEnv *jenv, jclass jcls) {
   jshort jresult = 0 ;
   uint8_t result;
   
@@ -308,7 +308,7 @@ SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1left_1bump(JNIEnv *jenv, j
 }
 
 
-SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1right_1bump(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jshort JNICALL Java_at_afv_createlib_createJNI_get_1create_1right_1bump(JNIEnv *jenv, jclass jcls) {
   jshort jresult = 0 ;
   uint8_t result;
   
@@ -320,7 +320,7 @@ SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1right_1bump(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1left_1wheel_1drop(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jshort JNICALL Java_at_afv_createlib_createJNI_get_1create_1left_1wheel_1drop(JNIEnv *jenv, jclass jcls) {
   jshort jresult = 0 ;
   uint8_t result;
   
@@ -332,7 +332,7 @@ SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1left_1wheel_1drop(JNIEnv *
 }
 
 
-SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1right_1wheel_1drop(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jshort JNICALL Java_at_afv_createlib_createJNI_get_1create_1right_1wheel_1drop(JNIEnv *jenv, jclass jcls) {
   jshort jresult = 0 ;
   uint8_t result;
   
@@ -344,7 +344,7 @@ SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1right_1wheel_1drop(JNIEnv 
 }
 
 
-SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1caster_1wheel_1drop(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jshort JNICALL Java_at_afv_createlib_createJNI_get_1create_1caster_1wheel_1drop(JNIEnv *jenv, jclass jcls) {
   jshort jresult = 0 ;
   uint8_t result;
   
@@ -356,7 +356,7 @@ SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1caster_1wheel_1drop(JNIEnv
 }
 
 
-SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1wall(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jshort JNICALL Java_at_afv_createlib_createJNI_get_1create_1wall(JNIEnv *jenv, jclass jcls) {
   jshort jresult = 0 ;
   uint8_t result;
   
@@ -368,7 +368,7 @@ SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1wall(JNIEnv *jenv, jclass 
 }
 
 
-SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1left_1cliff(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jshort JNICALL Java_at_afv_createlib_createJNI_get_1create_1left_1cliff(JNIEnv *jenv, jclass jcls) {
   jshort jresult = 0 ;
   uint8_t result;
   
@@ -380,7 +380,7 @@ SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1left_1cliff(JNIEnv *jenv, 
 }
 
 
-SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1right_1cliff(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jshort JNICALL Java_at_afv_createlib_createJNI_get_1create_1right_1cliff(JNIEnv *jenv, jclass jcls) {
   jshort jresult = 0 ;
   uint8_t result;
   
@@ -392,7 +392,7 @@ SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1right_1cliff(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1left_1front_1cliff(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jshort JNICALL Java_at_afv_createlib_createJNI_get_1create_1left_1front_1cliff(JNIEnv *jenv, jclass jcls) {
   jshort jresult = 0 ;
   uint8_t result;
   
@@ -404,7 +404,7 @@ SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1left_1front_1cliff(JNIEnv 
 }
 
 
-SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1right_1front_1cliff(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jshort JNICALL Java_at_afv_createlib_createJNI_get_1create_1right_1front_1cliff(JNIEnv *jenv, jclass jcls) {
   jshort jresult = 0 ;
   uint8_t result;
   
@@ -416,7 +416,7 @@ SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1right_1front_1cliff(JNIEnv
 }
 
 
-SWIGEXPORT jint JNICALL Java_createJNI_get_1create_1left_1cliff_1analog(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_at_afv_createlib_createJNI_get_1create_1left_1cliff_1analog(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   uint16_t result;
   
@@ -428,7 +428,7 @@ SWIGEXPORT jint JNICALL Java_createJNI_get_1create_1left_1cliff_1analog(JNIEnv *
 }
 
 
-SWIGEXPORT jint JNICALL Java_createJNI_get_1create_1right_1cliff_1analog(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_at_afv_createlib_createJNI_get_1create_1right_1cliff_1analog(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   uint16_t result;
   
@@ -440,7 +440,7 @@ SWIGEXPORT jint JNICALL Java_createJNI_get_1create_1right_1cliff_1analog(JNIEnv 
 }
 
 
-SWIGEXPORT jint JNICALL Java_createJNI_get_1create_1left_1front_1cliff_1analog(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_at_afv_createlib_createJNI_get_1create_1left_1front_1cliff_1analog(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   uint16_t result;
   
@@ -452,7 +452,7 @@ SWIGEXPORT jint JNICALL Java_createJNI_get_1create_1left_1front_1cliff_1analog(J
 }
 
 
-SWIGEXPORT jint JNICALL Java_createJNI_get_1create_1right_1front_1cliff_1analog(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jint JNICALL Java_at_afv_createlib_createJNI_get_1create_1right_1front_1cliff_1analog(JNIEnv *jenv, jclass jcls) {
   jint jresult = 0 ;
   uint16_t result;
   
@@ -464,7 +464,7 @@ SWIGEXPORT jint JNICALL Java_createJNI_get_1create_1right_1front_1cliff_1analog(
 }
 
 
-SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1angle(JNIEnv *jenv, jclass jcls) {
+SWIGEXPORT jshort JNICALL Java_at_afv_createlib_createJNI_get_1create_1angle(JNIEnv *jenv, jclass jcls) {
   jshort jresult = 0 ;
   int16_t result;
   
@@ -472,6 +472,20 @@ SWIGEXPORT jshort JNICALL Java_createJNI_get_1create_1angle(JNIEnv *jenv, jclass
   (void)jcls;
   result = (int16_t)get_create_angle();
   jresult = (jshort)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jint JNICALL Java_at_afv_createlib_createJNI_getAnalogOutput(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jint jresult = 0 ;
+  int arg1 ;
+  uint16_t result;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (int)jarg1; 
+  result = (uint16_t)getAnalogOutput(arg1);
+  jresult = (jint)result; 
   return jresult;
 }
 

@@ -131,12 +131,13 @@ public class QRCodeScanner implements ImageListener {
 
         double x = (points[2].getX() + points[1].getX()) / 2;
         double y = points[0].getY() + points[1].getY() / 2;
-        double length = points[2].getX() - points[1].getX();
+        double lengthX = points[2].getX() - points[1].getX();
+        double lengthY = points[2].getY() - points[1].getY();
 
-        gui.write("Tag " + "l: " + length + " x:" + x + " y: " + y + "\n");
+        gui.write("Tag " + "lx: " + lengthX + "ly: " + lengthY + " x:" + x + " y: " + y + "\n");
         double xDiff = (img.getWidth() / 2) - x;
 
-        int spin;
+        int spin = 0;
         ResultPoint a = points[1]; // top-left
         ResultPoint b = points[2]; // top-right
         if((b.getX() - 10 < a.getX()) && (b.getY() - 10 < a.getY()) || (b.getX() + 10 < a.getX()) && (b.getY() + 10 < a.getY())) {
@@ -152,12 +153,14 @@ public class QRCodeScanner implements ImageListener {
         }
 
 
-        int sDiff = (int) (90 - length);
-        int speed = (int) (Math.signum(sDiff) * Math.min(MAX_FORWARD_SPEED, Math.abs(sDiff)));
-        gui.write((length < 90 ? ">->-> Forward " : "<-<-< Backward ") + speed + "\n" + (xDiff > 0 ? " \\\\\\\\ Left " : " //// Right ") + spin + "\n");
+        int sDiffX = (int) (90 - lengthX);
+        int sDiffY = (int) (90 - lengthY);
+        int speedX = (int) (Math.signum(sDiffX) * Math.min(MAX_FORWARD_SPEED, Math.abs(sDiffX)));
+        int speedY = (int) (Math.signum(sDiffY) * Math.min(MAX_FORWARD_SPEED, Math.abs(sDiffY)));
+        gui.write((lengthX < 90 ? ">->-> Forward " : "<-<-< Backward ") + speedX + "\n" + (xDiff > 0 ? " \\\\\\\\ Left " : " //// Right ") + spin + "\n");
 
         cm.setLedsAnimation(LEDAnimation.GREEN, 1F, 1);
         isHovering = false;
-        cm.move(speed, 0, 0, spin);
+        cm.move(speedX, speedY, 0, spin);
     }
 }

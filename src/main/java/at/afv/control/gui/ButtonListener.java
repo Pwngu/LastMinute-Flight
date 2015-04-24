@@ -72,6 +72,17 @@ public class ButtonListener implements ActionListener{
                     guiController.dataListener.batteryLevelChanged(-1);
                     button.setActionCommand(GUIController.CONNECT);
                     button.setText("Connect");
+                    break;
+
+                case GUIController.VERT_CAMERA:
+                    droneController.horizontalCamera();
+                    button.setActionCommand(GUIController.HORZ_CAMERA);
+                    break;
+
+                case GUIController.HORZ_CAMERA:
+                    droneController.verticalCamera();
+                    button.setActionCommand(GUIController.VERT_CAMERA);
+                    break;
             }
 		} else if(button.getActionCommand().equals(GUIController.CONNECT)) {
 

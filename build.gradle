@@ -25,6 +25,7 @@ dependencies {
     compile 'com.google.zxing:javase:3.2.0'
 
     compile files("$projectDir/lib/yadrone_032.jar")
+    compile files("$projectDir/xuggle-xuggler-5.4.jar")
 
     testCompile 'junit:junit:4.+'
     testCompile 'org.mockito:mockito-core:2.0.5-beta'

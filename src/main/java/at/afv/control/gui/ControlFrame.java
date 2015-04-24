@@ -25,6 +25,7 @@ public class ControlFrame extends JFrame {
     JButton heightResetButton;
     JButton emergencyButton;
     JButton connectionButton;
+    JButton switchCameraButton;
 
 
     boolean focus;
@@ -39,12 +40,11 @@ public class ControlFrame extends JFrame {
         output.setColumns(25);
         output.setEditable(false);
         scrollOutput = new JScrollPane(output);
-        scrollOutput.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener() {
-            public void adjustmentValueChanged(AdjustmentEvent e) {
-                if(!focus)
-                    e.getAdjustable().setValue(e.getAdjustable().getMaximum());
-            }
+        scrollOutput.getVerticalScrollBar().addAdjustmentListener(e -> {
+            if(!focus)
+                e.getAdjustable().setValue(e.getAdjustable().getMaximum());
         });
+
         output.addFocusListener(new FocusListener() {
 
             @Override
@@ -66,6 +66,7 @@ public class ControlFrame extends JFrame {
         heightResetButton = new JButton("Height Reset");
         emergencyButton = new JButton("Emergency Stop");
         connectionButton = new JButton("Connect");
+        switchCameraButton = new JButton("Switch Camera");
 
         flyStateButton.addActionListener(guiController.getButtonListener());
         flyStateButton.setActionCommand(GUIController.TAKEOFF);
@@ -79,6 +80,8 @@ public class ControlFrame extends JFrame {
         connectionButton.setActionCommand(GUIController.CONNECT);
         followButton.addActionListener(guiController.getButtonListener());
         followButton.setActionCommand(GUIController.START_FOLLOW);
+        switchCameraButton.addActionListener(guiController.getButtonListener());
+        switchCameraButton.setActionCommand(GUIController.VERT_CAMERA);
 
         batteryLevel = new JTextField("--", 4);
         batteryLevel.setEditable(false);
@@ -87,6 +90,7 @@ public class ControlFrame extends JFrame {
         controlPanel.add(flyStateButton);
         controlPanel.add(followButton);
         controlPanel.add(emergencyButton);
+        controlPanel.add(switchCameraButton);
         controlPanel.add(connectionButton);
         controlPanel.add(batteryLevel);
         controlPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, controlPanel.getMinimumSize().height));

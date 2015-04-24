@@ -11,7 +11,7 @@ public class DroneController {
 	private boolean manualMode = false;
 	private boolean initialized = false;
 	private boolean flying = false;
-	
+
 	public DroneController() {
 
 	}
@@ -25,10 +25,13 @@ public class DroneController {
 			drone.start();
 
 			drone.getCommandManager().setOwnerMac("b8:e8:56:3d:93:8e");
+            drone.setVerticalCamera();
 
 			manualMode = true;
             initialized = true;
-		}
+
+            System.out.println("Drone Controller initialized");
+        }
 	}
 
     public ARDrone getARDrone() {
@@ -82,6 +85,16 @@ public class DroneController {
     public boolean isInitialized() {
 
         return initialized;
+    }
+
+    public void horizontalCamera() {
+
+        drone.setHorizontalCamera();
+    }
+
+    public void verticalCamera() {
+
+        drone.setVerticalCamera();
     }
 	
 	public void destroy() {

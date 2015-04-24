@@ -9,6 +9,9 @@ public class GUIController {
 	public static final String LAND = "land";
 	public static final String EMERGENCY_STOP = "emgy_stop";
 
+    public static final String VERT_CAMERA = "vert_camera";
+    public static final String HORZ_CAMERA = "horz_camera";
+
 	public static final String START_FOLLOW = "start_follow";
 	public static final String STOP_FOLLOW = "stop_follow";
     public static final String HEIGHT_RESET = "height_reset";

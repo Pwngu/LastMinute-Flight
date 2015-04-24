@@ -92,10 +92,10 @@ public class QRCodeScanner implements ImageListener {
             scanResult = null;
         }
 
-        tag(/*(float) theta, */points, scanResult == null ? null : image);
+        tag((float) theta, points, scanResult == null ? null : image);
     }
 
-    public void tag(ResultPoint[] points, BufferedImage img) {
+    public void tag(float theta, ResultPoint[] points, BufferedImage img) {
 
         if(!controller.isFlying())
             return;
@@ -137,10 +137,19 @@ public class QRCodeScanner implements ImageListener {
         double xDiff = (img.getWidth() / 2) - x;
 
         int spin;
-        if(Math.abs(xDiff) > SPIN_THRESHOLD)
-            spin = (int) (Math.signum(xDiff) * Math.min(MAX_SPIN_SPEED, Math.abs(xDiff) / 3));
-        else
+        ResultPoint a = points[1]; // top-left
+        ResultPoint b = points[2]; // top-right
+        if((b.getX() - 10 < a.getX()) && (b.getY() - 10 < a.getY()) || (b.getX() + 10 < a.getX()) && (b.getY() + 10 < a.getY())) {
+            gui.write("Spin Right");
+        } else {
             spin = 0;
+        }
+
+        if((b.getX() - 10 > a.getX()) && (b.getY() - 10 > a.getY()) || (b.getX() + 10 > a.getX()) && (b.getY() + 10 > a.getY())) {
+            gui.write("Spin Left");
+        } else {
+            spin = 0;
+        }
 
 
         int sDiff = (int) (90 - length);

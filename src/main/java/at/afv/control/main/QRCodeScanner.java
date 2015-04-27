@@ -50,7 +50,7 @@ public class QRCodeScanner implements ImageListener {
 
 //        gui.getStreamFrame().setImage(image);
 //        gui.getStreamPanel().setImage(image);
-        if((++imageCount % 2) != 0)
+        if((++imageCount % 10) != 0)
             return;
 
         // try to detect QR code
@@ -97,8 +97,8 @@ public class QRCodeScanner implements ImageListener {
 
     public void tag(float theta, ResultPoint[] points, BufferedImage img) {
 
-        if(!controller.isFlying())
-            return;
+//        if(!controller.isFlying())
+//            return;
 
         if(!controller.isFollowing()) {
             if(!isHovering) {
@@ -135,32 +135,26 @@ public class QRCodeScanner implements ImageListener {
         double lengthY = points[2].getY() - points[1].getY();
 
         gui.write("Tag " + "lx: " + lengthX + "ly: " + lengthY + " x:" + x + " y: " + y + "\n");
-        double xDiff = (img.getWidth() / 2) - x;
 
-        int spin = 0;
+        int spin;
         ResultPoint a = points[1]; // top-left
         ResultPoint b = points[2]; // top-right
-        if((b.getX() - 10 < a.getX()) && (b.getY() - 10 < a.getY()) || (b.getX() + 10 < a.getX()) && (b.getY() + 10 < a.getY())) {
-            gui.write("Spin Right");
-        } else {
-            spin = 0;
-        }
 
-        if((b.getX() - 10 > a.getX()) && (b.getY() - 10 > a.getY()) || (b.getX() + 10 > a.getX()) && (b.getY() + 10 > a.getY())) {
-            gui.write("Spin Left");
-        } else {
-            spin = 0;
-        }
+        if((b.getY() + 10) > (a.getY() - 10)) {
+            spin = 10;
+        } else if((a.getY() + 10) > (b.getY() - 10)) {
+            spin = -10;
+        } else spin = 0;
 
 
         int sDiffX = (int) (90 - lengthX);
         int sDiffY = (int) (90 - lengthY);
         int speedX = (int) (Math.signum(sDiffX) * Math.min(MAX_FORWARD_SPEED, Math.abs(sDiffX)));
         int speedY = (int) (Math.signum(sDiffY) * Math.min(MAX_FORWARD_SPEED, Math.abs(sDiffY)));
-        gui.write((lengthX < 90 ? ">->-> Forward " : "<-<-< Backward ") + speedX + "\n" + (xDiff > 0 ? " \\\\\\\\ Left " : " //// Right ") + spin + "\n");
+        gui.write((lengthX < 90 ? ">->-> Forward " : "<-<-< Backward ") + speedX + "\n" + (spin < 0 ? " \\\\\\\\ Left " : " //// Right ") + spin + "\n");
 
         cm.setLedsAnimation(LEDAnimation.GREEN, 1F, 1);
         isHovering = false;
-        cm.move(speedX, speedY, 0, spin);
+//        cm.move(0, 0, 0, spin);
     }
 }

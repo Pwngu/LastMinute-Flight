@@ -62,7 +62,7 @@ public class ControlFrame extends JFrame {
         });
 
         //init buttons
-        flyStateButton = new JButton("Start");
+        flyStateButton = new JButton("Take Off");
         followButton = new JButton("Start Following");
         heightResetButton = new JButton("Height Reset");
         emergencyButton = new JButton("Emergency Stop");
@@ -113,6 +113,7 @@ public class ControlFrame extends JFrame {
         this.pack();
         this.setSize(1000, 800);
         this.setVisible(true);
+        this.setFocusable(true);
         this.addKeyListener(guiController.getKeyListener());
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }

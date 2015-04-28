@@ -48,8 +48,8 @@ public class GUIController {
 
     public void destroy() {
 
-//      droneVideoManager.getVideoManager().addImageListener(dataListener);
         droneController.getARDrone().getNavDataManager().removeBatteryListener(dataListener);
+        droneController.getARDrone().getVideoManager().removeImageListener(dataListener);
     }
 
 	public void write(String str) {

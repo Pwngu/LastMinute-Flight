@@ -5,7 +5,7 @@ apply plugin: 'idea'
 
 // Deploy setting
 def deployName = 'LastMinute-Flight_DroneControl'
-def mainClass = "at.afv.run.DroneControl"
+def mainClass = "at.afv.run.DroneControlGUI"
 
 version = '1.0'
 

@@ -24,7 +24,7 @@ public class DroneController {
 			qrScanner = new QRCodeScanner(this, guiController);
 			drone.start();
 
-			drone.getCommandManager().setOwnerMac("b8:e8:56:3d:93:8e");
+			drone.getCommandManager().setOwnerMac("00:00:00:00:00:00");
             drone.setVerticalCamera();
 
 			manualMode = true;
@@ -51,6 +51,7 @@ public class DroneController {
 
 		manualMode();
 		flying = false;
+		drone.hover();
 		drone.landing();
 	}
 	

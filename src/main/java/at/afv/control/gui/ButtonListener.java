@@ -45,15 +45,15 @@ public class ButtonListener implements ActionListener{
 
                         droneController.takeOff();
                         try {
-                            Thread.sleep(6000);
+                            Thread.sleep(5000);
                         } catch(InterruptedException e) { return; }
-                        droneController.getARDrone().getCommandManager().up(50);
+                        droneController.getARDrone().getCommandManager().up(65);
                         try {
-                            Thread.sleep(1000);
+                            Thread.sleep(1500);
                         } catch(InterruptedException e) { return; }
                         droneController.getARDrone().forward();
                         try {
-                            Thread.sleep(2600);
+                            Thread.sleep(2200);
                         } catch(InterruptedException e) { return; }
                         droneController.land();
                     });

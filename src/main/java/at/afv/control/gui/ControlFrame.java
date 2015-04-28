@@ -2,8 +2,6 @@ package at.afv.control.gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.AdjustmentEvent;
-import java.awt.event.AdjustmentListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
@@ -20,6 +18,9 @@ public class ControlFrame extends JFrame {
     JTextField batteryLevel;
 
     JPanel controlPanel;
+    JPanel leftPanel;
+    JPanel cameraFollowPanel;
+
     JButton flyStateButton;
     JButton followButton;
     JButton heightResetButton;
@@ -61,7 +62,7 @@ public class ControlFrame extends JFrame {
         });
 
         //init buttons
-        flyStateButton = new JButton("Start");
+        flyStateButton = new JButton("Take Off");
         followButton = new JButton("Start Following");
         heightResetButton = new JButton("Height Reset");
         emergencyButton = new JButton("Emergency Stop");
@@ -84,13 +85,20 @@ public class ControlFrame extends JFrame {
         switchCameraButton.setActionCommand(GUIController.VERT_CAMERA);
 
         batteryLevel = new JTextField("--", 4);
+        batteryLevel.setFont(new Font(null, Font.PLAIN, 20));
         batteryLevel.setEditable(false);
 
-        controlPanel = new JPanel();
-        controlPanel.add(flyStateButton);
-        controlPanel.add(followButton);
+        cameraFollowPanel = new JPanel(new GridLayout(1, 2));
+        cameraFollowPanel.add(followButton);
+        cameraFollowPanel.add(switchCameraButton);
+
+        leftPanel = new JPanel(new GridLayout(2, 1));
+        leftPanel.add(cameraFollowPanel);
+        leftPanel.add(flyStateButton);
+
+        controlPanel = new JPanel(new GridLayout(1, 4));
+        controlPanel.add(leftPanel);
         controlPanel.add(emergencyButton);
-        controlPanel.add(switchCameraButton);
         controlPanel.add(connectionButton);
         controlPanel.add(batteryLevel);
         controlPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, controlPanel.getMinimumSize().height));
@@ -103,8 +111,9 @@ public class ControlFrame extends JFrame {
 
         this.setContentPane(contentPane);
         this.pack();
-        this.setSize(800, 600);
+        this.setSize(1000, 800);
         this.setVisible(true);
+        this.setFocusable(true);
         this.addKeyListener(guiController.getKeyListener());
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }

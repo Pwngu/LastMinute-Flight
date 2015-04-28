@@ -34,9 +34,10 @@ public class ButtonListener implements ActionListener{
 
                 case GUIController.LAND:
                     droneController.land();
+                    droneController.manualMode();
                     button.setActionCommand(GUIController.TAKEOFF);
-                    button.setText("Take Off"); // fall through
-//                    break;
+                    button.setText("Take Off");
+                    break;
 
                 case GUIController.STOP_FOLLOW:
                     droneController.manualMode();
@@ -46,13 +47,15 @@ public class ButtonListener implements ActionListener{
 
                 case GUIController.EMERGENCY_STOP:
                     droneController.emergencyStop();
+                    guiController.controlFrame.flyStateButton.setActionCommand(GUIController.TAKEOFF);
+                    guiController.controlFrame.flyStateButton.setText("Take Off");
                     break;
 
                 case GUIController.HEIGHT_RESET:
                     break;
 
                 case GUIController.START_FOLLOW:
-                    droneController.manualMode();
+                    droneController.followMode();
                     button.setActionCommand(GUIController.STOP_FOLLOW);
                     button.setText("Stop Following");
                     break;

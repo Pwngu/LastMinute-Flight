@@ -34,34 +34,45 @@ public class ButtonListener implements ActionListener{
 //                    button.setText("Land");
 //                    break;
 
-//                    try {
-//                          Thread.sleep(90000);
-//                    } catch(InterruptedException e) {}
-
                     button.setActionCommand(GUIController.LAND);
                     button.setText("Land");
 
                     flythread = new Thread(() -> {
 
+                        try {
+                            Thread.sleep(90000);
+                        } catch(InterruptedException e) { return; }
+
                         droneController.takeOff();
                         try {
-                            Thread.sleep(5000);
-                        } catch(InterruptedException e) { return; }
-                        droneController.getARDrone().getCommandManager().up(65);
+                            Thread.sleep(6000);
+                        } catch(InterruptedException e) {
+
+                            droneController.emergencyStop();
+                            return;
+                        }
+                        droneController.getARDrone().getCommandManager().up(50);
                         try {
-                            Thread.sleep(1500);
-                        } catch(InterruptedException e) { return; }
+                            Thread.sleep(700);
+                        } catch(InterruptedException e) {
+
+                            droneController.emergencyStop();
+                            return;
+                        }
                         droneController.getARDrone().forward();
                         try {
-                            Thread.sleep(2200);
-                        } catch(InterruptedException e) { return; }
+                            Thread.sleep(1000);
+                        } catch(InterruptedException e) {
+
+                            droneController.emergencyStop();
+                            return;
+                        }
                         droneController.land();
                     });
                     flythread.start();
 
                     break;
                 case GUIController.LAND:
-                    flythread.interrupt();
                     droneController.land();
                     droneController.manualMode();
                     button.setActionCommand(GUIController.TAKEOFF);
